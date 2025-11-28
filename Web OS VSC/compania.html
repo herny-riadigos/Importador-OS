@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Compañía - Importación</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Librerías necesarias -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="js/utilidades.js"></script>
+  <script src="js/compania.js"></script>
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado-superior">
+    <span class="titulo-izq">Obras Sociales</span>
+    <span class="titulo-central">Compañía</span>
+    <span class="titulo-der">Riadigos*</span>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container" style="
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      width:80%;
+      max-width:900px;
+      margin-top: 30px;
+    ">
+
+    <textarea id="entradaPDF"
+      placeholder="Pegá aquí el contenido del PDF de Compañía..."
+      style="
+        width:100%;
+        height:300px;
+        padding:15px;
+        font-size:16px;
+        border-radius:10px;
+        border:1px solid #ccc;
+        resize: vertical;
+      ">
+    </textarea>
+
+    <button onclick="procesarTextoCompania()">Procesar Texto</button>
+
+  </div>
+
+  <!-- BOTÓN VOLVER -->
+  <div class="volver-container">
+    <button class="btn-volver" onclick="location.href='index.html'">⟵ Volver</button>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie-pagina">
+    <button class="btn-reporte">Reportar Problema / Sugerencias</button>
+  </footer>
+
+</body>
+</html>

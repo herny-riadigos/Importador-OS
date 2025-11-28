@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admifarm - Importación</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Librería XLSX -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+
+  <!-- Scripts lógicos -->
+  <script src="js/utilidades.js"></script>
+  <script src="js/admifarm.js"></script>
+</head>
+
+<body>
+
+  <!-- Encabezado -->
+  <header class="encabezado-superior">
+    <span class="titulo-izq">Obras Sociales</span>
+    <span class="titulo-central">Admifarm</span>
+    <span class="titulo-der">Riadigos*</span>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <button onclick="importarAdmifarm()">Importar Admifarm</button>
+  </div>
+
+  <!-- Botón Volver -->
+  <div class="volver-container">
+    <button class="btn-volver" onclick="location.href='index.html'">⟵ Volver</button>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="pie-pagina">
+    <button class="btn-reporte" onclick="alert('Pronto se abrirá el formulario 😊')">
+      Reportar Problema / Sugerencias
+    </button>
+  </footer>
+
+</body>
+</html>

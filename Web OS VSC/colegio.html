@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Colegio - Importación</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Librería para leer XLSX -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+
+  <!-- Scripts externos (MODULARIZADO) -->
+  <script src="js/utilidades.js"></script>
+  <script src="js/colegio.js"></script>
+  <script src="js/sancor.js"></script>
+  <script src="js/misValidaciones.js"></script>
+</head>
+
+<body>
+
+  <header class="encabezado-superior">
+    <span class="titulo-izq">Obras Sociales</span>
+    <span class="titulo-central">Colegio</span>
+    <span class="titulo-der">Riadigos*</span>
+  </header>
+
+  <div class="container">
+    <button onclick="importarColegio()">Importar Colegio</button>
+    <button onclick="importarSancor()">Importar Sancor</button>
+    <button onclick="importarMisValidaciones()">Importar Mis Validaciones</button>
+  </div>
+
+  <div class="volver-container">
+    <button class="btn-volver" onclick="location.href='index.html'">⟵ Volver</button>
+  </div>
+
+
+  <footer class="pie-pagina">
+    <button class="btn-reporte" onclick="alert('Pronto se abrirá el formulario 😊')">
+      Reportar Problema / Sugerencias
+    </button>
+  </footer>
+
+</body>
+
+</html>
