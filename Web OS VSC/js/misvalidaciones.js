@@ -6,15 +6,26 @@ function importarMisValidaciones() {
     let lineasGeneral = [];
 
     for (const archivo of archivos) {
-      if (!archivo.nombre.toLowerCase().includes("mis validaciones"))
-        continue;
 
-      let datos = leerXLSX(archivo.buffer);
+      const nombre = archivo.nombre.toLowerCase();
+
+      // Detectar cualquiera de estas formas
+      if (
+        !nombre.includes("mis validaciones") &&
+        !nombre.includes("mis_validaciones") &&
+        !nombre.includes("misvalidaciones")
+      ) {
+        continue;
+      }
+
+      // 🔹 IMPORTANTE: esperar el XLSX
+      let datos = await leerXLSX(archivo.buffer);
 
       const encabezadoRegex = /cod[_ ]?valid/i;
       const indice = datos.findIndex(fila =>
         fila.join(" ").toLowerCase().match(encabezadoRegex)
       );
+
       if (indice === -1) continue;
 
       datos = datos.slice(indice + 1);
