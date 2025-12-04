@@ -6,8 +6,9 @@ function importarAdmifarm() {
     let lineasGeneral = [];
 
     for (const archivo of archivos) {
-      if (!archivo.nombre.toLowerCase().includes("admifarm"))
-        continue;
+
+      // ❌ Eliminamos validación por nombre
+      // if (!archivo.nombre.toLowerCase().includes("admifarm")) continue;
 
       let datos = leerXLSX(archivo.buffer);
       datos = datos.slice(1); // eliminar encabezado
