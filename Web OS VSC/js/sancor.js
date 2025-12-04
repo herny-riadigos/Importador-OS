@@ -6,8 +6,9 @@ function importarSancor() {
     let lineasGeneral = [];
 
     for (const archivo of archivos) {
-      if (!archivo.nombre.toLowerCase().includes("sancor"))
-        continue;
+
+      // ❌ Eliminamos validación por nombre
+      // if (!archivo.nombre.toLowerCase().includes("sancor")) continue;
 
       let datos = leerXLSX(archivo.buffer);
 
