@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <title>Importación de Archivos</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    emailjs.init("harbVhYOW0npNQc0x");  
+  </script>
+
 </head>
 
 <body>
@@ -23,10 +29,31 @@
     <button onclick="location.href='imed.html'">Imed</button>
   </div>
   <footer class="pie-pagina">
-    <button class="btn-reporte" onclick="alert('Pronto se abrirá el formulario 😊')">
+    <button class="btn-reporte" onclick="abrirModal()">
       Reportar Problema / Sugerencias
     </button>
   </footer>
+  <div id="modalReporte" class="modal">
+    <div class="modal-contenido">
+      <h2>Enviar sugerencia o reporte</h2>
+
+      <label>Tipo:</label>
+      <select id="reporteTipo">
+        <option>Problema</option>
+        <option>Sugerencia</option>
+        <option>Mejora</option>
+      </select>
+
+      <label>Mensaje:</label>
+      <textarea id="reporteMensaje" placeholder="Escribí tu comentario aquí..."></textarea>
+
+      <div class="modal-botones">
+        <button onclick="enviarReporte()">Enviar</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

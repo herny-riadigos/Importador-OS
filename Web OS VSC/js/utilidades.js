@@ -68,3 +68,37 @@ function descargarTXT(nombre, contenido) {
   enlace.download = nombre;
   enlace.click();
 }
+function abrirModal() {
+  document.getElementById("modalReporte").style.display = "flex";
+}
+
+function cerrarModal() {
+  document.getElementById("modalReporte").style.display = "none";
+}
+
+function enviarReporte() {
+  const tipo = document.getElementById("reporteTipo").value;
+  const mensaje = document.getElementById("reporteMensaje").value.trim();
+
+  if (mensaje.length < 3) {
+    alert("Por favor escribí un comentario.");
+    return;
+  }
+
+  const datos = {
+    tipo: tipo,
+    mensaje: mensaje,
+    fecha: new Date().toLocaleString(),
+    navegador: navigator.userAgent
+  };
+
+  emailjs.send("service_3h54pjk", "template_9gbrysp", datos)
+    .then(() => {
+      alert("¡Gracias! Tu mensaje fue enviado correctamente 😊");
+      cerrarModal();
+    })
+    .catch((error) => {
+      alert("Error enviando el mensaje. Intenta nuevamente.");
+      console.error("EMAILJS ERROR:", error);
+    });
+}
