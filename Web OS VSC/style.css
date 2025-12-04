@@ -165,26 +165,85 @@ button:active {
 .btn-volver:active {
   transform: scale(0.97);
 }
+/* ============================
+   MODAL PARA REPORTES
+=============================== */
+
 .modal {
-  display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: none;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .modal-contenido {
   background: white;
-  padding: 20px;
-  width: 350px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  padding: 25px 35px;
+  width: 380px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  animation: aparecer 0.2s ease-out;
 }
 
+@keyframes aparecer {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.campo {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: none;
+}
+
+.campo textarea {
+  height: 100px;
+}
+
+/* BOTONES MODAL */
+
 .modal-botones {
+  margin-top: 20px;
   display: flex;
-  margin-top: 10px;
   justify-content: space-between;
+}
+
+.btn-modal {
+  width: 48%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.enviar {
+  background-color: #00bfa6;
+  color: white;
+}
+
+.cancelar {
+  background-color: #d4d4d4;
 }
