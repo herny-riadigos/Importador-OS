@@ -6,7 +6,7 @@
   <title>Importación de Archivos</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
+  <script src="js/utilidades.js"></script>
   <script>
     emailjs.init("harbVhYOW0npNQc0x");  
   </script>
@@ -37,22 +37,27 @@
     <div class="modal-contenido">
       <h2>Enviar sugerencia o reporte</h2>
 
-      <label>Tipo:</label>
-      <select id="reporteTipo">
-        <option>Problema</option>
-        <option>Sugerencia</option>
-        <option>Mejora</option>
-      </select>
+      <div class="campo">
+        <label>Tipo de mensaje:</label>
+        <select id="reporteTipo">
+          <option>Problema</option>
+          <option>Sugerencia</option>
+          <option>Mejora</option>
+        </select>
+      </div>
 
-      <label>Mensaje:</label>
-      <textarea id="reporteMensaje" placeholder="Escribí tu comentario aquí..."></textarea>
+      <div class="campo">
+        <label>Mensaje:</label>
+        <textarea id="reporteMensaje" placeholder="Escribí tu comentario aquí..."></textarea>
+      </div>
 
       <div class="modal-botones">
-        <button onclick="enviarReporte()">Enviar</button>
-        <button onclick="cerrarModal()">Cancelar</button>
+        <button class="btn-modal enviar" onclick="enviarReporte()">Enviar</button>
+        <button class="btn-modal cancelar" onclick="cerrarModal()">Cancelar</button>
       </div>
     </div>
   </div>
+
 
 </body>
 
