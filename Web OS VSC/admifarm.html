@@ -1,38 +1,71 @@
-/* ======================================================
-   🟦  FLUJO: IMPORTAR ADMIFARM (solo XLSX)
-   ====================================================== */
-function importarAdmifarm() {
-  seleccionarArchivos(async (archivos) => {
-    let lineasGeneral = [];
+<!DOCTYPE html>
+<html lang="es">
 
-    for (const archivo of archivos) {
+<head>
+  <meta charset="UTF-8">
+  <title>Admifarm - Importación</title>
+  <link rel="stylesheet" href="style.css">
 
-      // ❌ Eliminamos validación por nombre
-      // if (!archivo.nombre.toLowerCase().includes("admifarm")) continue;
+  <!-- Librería XLSX -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
 
-      let datos = leerXLSX(archivo.buffer);
-      datos = datos.slice(1); // eliminar encabezado
+  <!-- Scripts lógicos -->
+  <script src="js/utilidades.js"></script>
+  <script src="js/admifarm.js"></script>
+</head>
 
-      const lineas = datos
-        .filter(fila => {
-          const str = fila.join("").trim();
-          if (str === "") return false;
-          if (!fila[0]) return false;
-          if (isNaN(fila[0])) return false;
-          return true;
-        })
-        .map(fila => generarLineaTXT(fila[0]));
+<body>
 
-      const nombreTxt = archivo.nombre.replace(".xlsx", "") + ".txt";
-      descargarTXT(nombreTxt, lineas.join("\n"));
+  <!-- Encabezado -->
+  <header class="encabezado-superior">
+    <span class="titulo-izq">Obras Sociales</span>
+    <span class="titulo-central">Admifarm</span>
+    <span class="titulo-der">Riadigos*</span>
+  </header>
 
-      lineasGeneral.push(...lineas);
-    }
+  <!-- Contenido principal -->
+  <div class="container">
+    <button onclick="importarAdmifarm()">Importar Admifarm</button>
+  </div>
 
-    if (lineasGeneral.length > 0) {
-      descargarTXT("ADMIFARM_GENERAL.txt", lineasGeneral.join("\n"));
-    }
+  <!-- Botón Volver -->
+  <div class="volver-container">
+    <button class="btn-volver" onclick="location.href='index.html'">⟵ Volver</button>
+  </div>
 
-    alert("Admifarm: Procesamiento completo.");
-  }, "xlsx");
-}
+  <!-- Pie de página -->
+  <footer class="pie-pagina">
+    <button class="btn-reporte" onclick="abrirModal()">
+      Reportar Problema / Sugerencias
+    </button>
+  </footer>
+
+  <div id="modalReporte" class="modal">
+    <div class="modal-contenido">
+      <h2>Enviar sugerencia o reporte</h2>
+
+      <div class="campo">
+        <label>Tipo de mensaje:</label>
+        <select id="reporteTipo">
+          <option>Problema</option>
+          <option>Sugerencia</option>
+          <option>Mejora</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Mensaje:</label>
+        <textarea id="reporteMensaje" placeholder="Escribí tu comentario aquí..."></textarea>
+      </div>
+
+      <div class="modal-botones">
+        <button class="btn-modal enviar" onclick="enviarReporte()">Enviar</button>
+        <button class="btn-modal cancelar" onclick="cerrarModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
