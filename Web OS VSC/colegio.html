@@ -36,10 +36,36 @@
 
 
   <footer class="pie-pagina">
-    <button class="btn-reporte" onclick="alert('Pronto se abrirá el formulario 😊')">
+    <button class="btn-reporte" onclick="abrirModal()">
       Reportar Problema / Sugerencias
     </button>
   </footer>
+
+  <div id="modalReporte" class="modal">
+    <div class="modal-contenido">
+      <h2>Enviar sugerencia o reporte</h2>
+
+      <div class="campo">
+        <label>Tipo de mensaje:</label>
+        <select id="reporteTipo">
+          <option>Problema</option>
+          <option>Sugerencia</option>
+          <option>Mejora</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Mensaje:</label>
+        <textarea id="reporteMensaje" placeholder="Escribí tu comentario aquí..."></textarea>
+      </div>
+
+      <div class="modal-botones">
+        <button class="btn-modal enviar" onclick="enviarReporte()">Enviar</button>
+        <button class="btn-modal cancelar" onclick="cerrarModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 
