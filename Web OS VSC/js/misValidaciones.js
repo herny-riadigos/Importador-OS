@@ -7,8 +7,6 @@
   
       for (const archivo of archivos) {
   
-        const nombre = archivo.nombre.toLowerCase();
-    
         // 🔹 IMPORTANTE: esperar el XLSX
         let datos = await leerXLSX(archivo.buffer);
   
@@ -46,3 +44,4 @@
   }
 
   
+
