@@ -22,12 +22,12 @@ function importarIMED() {
         .map(l => l.trim())
         .filter(l => l !== "");
 
-      // Acumular para el general
+      // Acumular todas las líneas
       acumulado.push(...lineas);
 
-      // Descargar un TXT individual por archivo
-      const nombreTxt = archivo.nombre.replace(".txt", "") + "_PROCESADO.txt";
-      descargarTXT(nombreTxt, lineas.join("\n"));
+      // ❌ ELIMINAR DESCARGA INDIVIDUAL
+      // const nombreTxt = archivo.nombre.replace(".txt", "") + "_PROCESADO.txt";
+      // descargarTXT(nombreTxt, lineas.join("\n"));
     }
 
     if (acumulado.length === 0) {
