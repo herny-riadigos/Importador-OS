@@ -8,16 +8,7 @@
       for (const archivo of archivos) {
   
         const nombre = archivo.nombre.toLowerCase();
-  
-        // Detectar cualquiera de estas formas
-        if (
-          !nombre.includes("mis validaciones") &&
-          !nombre.includes("mis_validaciones") &&
-          !nombre.includes("misvalidaciones")
-        ) {
-          continue;
-        }
-  
+    
         // 🔹 IMPORTANTE: esperar el XLSX
         let datos = await leerXLSX(archivo.buffer);
   
@@ -53,4 +44,5 @@
       alert("Mis Validaciones: Procesamiento completo.");
     }, "xlsx");
   }
+
   
